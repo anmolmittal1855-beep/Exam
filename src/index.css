@@ -1,0 +1,384 @@
+@import "tailwindcss";
+
+/* ========================================
+   EXAMPULSE DESIGN SYSTEM — DARK MODE ONLY
+   ======================================== */
+
+@theme {
+  /* Permanent Sleek Dark Command Center Palette */
+  --color-bg-main: #0E1012;
+  --color-bg-subtle: #141619;
+  --color-surface: #17191C;
+  --color-surface-hover: #1E2125;
+  --color-surface-elevated: #22252A;
+  --color-text-primary: #F0F2F5;
+  --color-text-secondary: #9AA0A6;
+  --color-text-muted: #666C74;
+  --color-blue-primary: #639AE2;
+  --color-blue-hover: #5086CB;
+  --color-blue-light: rgba(99, 154, 226, 0.15);
+  --color-green-soft: rgba(120, 184, 138, 0.14);
+  --color-green-muted: #78B88A;
+  --color-pink-soft: rgba(245, 221, 235, 0.12);
+  --color-coral-muted: #E9A48C;
+  --color-coral-soft: rgba(233, 164, 140, 0.15);
+  --color-yellow-soft: rgba(244, 242, 222, 0.12);
+  --color-yellow-muted: #D8CA68;
+  --color-border: #26292E;
+  --color-border-subtle: #1C1F23;
+
+  /* Deep dark shadows */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.3), 0 2px 6px -1px rgba(0, 0, 0, 0.2);
+  --shadow-card-hover: 0 6px 20px -2px rgba(0, 0, 0, 0.45), 0 2px 8px -1px rgba(99, 154, 226, 0.15);
+  --shadow-dropdown: 0 12px 36px -4px rgba(0, 0, 0, 0.6), 0 4px 12px -2px rgba(0, 0, 0, 0.4);
+  --shadow-modal: 0 24px 64px -12px rgba(0, 0, 0, 0.75), 0 8px 24px -4px rgba(0, 0, 0, 0.5);
+
+  /* Radii */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --color-bg-main: #0E1012;
+  --color-bg-subtle: #141619;
+  --color-surface: #17191C;
+  --color-surface-hover: #1E2125;
+  --color-surface-elevated: #22252A;
+  --color-text-primary: #F0F2F5;
+  --color-text-secondary: #9AA0A6;
+  --color-text-muted: #666C74;
+  --color-blue-primary: #639AE2;
+  --color-blue-hover: #5086CB;
+  --color-blue-light: rgba(99, 154, 226, 0.15);
+  --color-green-soft: rgba(120, 184, 138, 0.14);
+  --color-green-muted: #78B88A;
+  --color-pink-soft: rgba(245, 221, 235, 0.12);
+  --color-coral-muted: #E9A48C;
+  --color-coral-soft: rgba(233, 164, 140, 0.15);
+  --color-yellow-soft: rgba(244, 242, 222, 0.12);
+  --color-yellow-muted: #D8CA68;
+  --color-border: #26292E;
+  --color-border-subtle: #1C1F23;
+
+  /* Compatibility dark tokens mapped to the dark theme */
+  --color-dark-bg: #0E1012;
+  --color-dark-surface: #17191C;
+  --color-dark-surface-elevated: #22252A;
+  --color-dark-text-primary: #F0F2F5;
+  --color-dark-text-secondary: #9AA0A6;
+  --color-dark-border: #26292E;
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background-color: var(--color-bg-main);
+  color: var(--color-text-primary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-size: 13.5px;
+  letter-spacing: -0.011em;
+}
+
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2E3238;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #3E434B;
+}
+
+/* ========================================
+   UTILITY CLASSES & DESIGN COMPONENTS
+   ======================================== */
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(99, 154, 226, 0.35);
+}
+
+/* Nested sub-card container inside cards */
+.sub-panel {
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+/* Badges with crisp borders and glowing muted tones */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2.5px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.35;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+.badge-blue {
+  background: rgba(99, 154, 226, 0.15);
+  color: #8CB8F0;
+  border: 1px solid rgba(99, 154, 226, 0.28);
+}
+
+.badge-green {
+  background: rgba(120, 184, 138, 0.15);
+  color: #8FD8A2;
+  border: 1px solid rgba(120, 184, 138, 0.28);
+}
+
+.badge-pink {
+  background: rgba(245, 221, 235, 0.12);
+  color: #D898B6;
+  border: 1px solid rgba(245, 221, 235, 0.24);
+}
+
+.badge-coral {
+  background: rgba(233, 164, 140, 0.15);
+  color: #F0A087;
+  border: 1px solid rgba(233, 164, 140, 0.3);
+}
+
+.badge-yellow {
+  background: rgba(244, 242, 222, 0.12);
+  color: #D6CA73;
+  border: 1px solid rgba(244, 242, 222, 0.25);
+}
+
+.badge-neutral {
+  background: rgba(255, 255, 255, 0.05);
+  color: #A0A6AC;
+  border: 1px solid var(--color-border);
+}
+
+/* ========================================
+   FORM ELEMENTS
+   ======================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+input[type="url"],
+input[type="search"],
+textarea,
+select {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+  outline: none;
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-blue-primary);
+  box-shadow: 0 0 0 3px rgba(99, 154, 226, 0.22);
+}
+
+label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: 5px;
+  letter-spacing: -0.01em;
+}
+
+/* ========================================
+   BUTTON SYSTEM
+   ======================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 15px;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--color-blue-primary);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(99, 154, 226, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-blue-hover);
+  box-shadow: 0 4px 14px rgba(99, 154, 226, 0.45);
+  transform: translateY(-0.5px);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--color-surface-hover);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text-secondary);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text-primary);
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.btn-icon {
+  padding: 6px;
+  border-radius: var(--radius-sm);
+}
+
+/* ========================================
+   MODAL / OVERLAY
+   ======================================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn var(--transition-fast) ease-out;
+}
+
+.modal-content {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-modal);
+  width: 90%;
+  max-width: 520px;
+  max-height: 85vh;
+  overflow-y: auto;
+  animation: slideUp var(--transition-normal) ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ========================================
+   PROGRESS BAR
+   ======================================== */
+
+.progress-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width var(--transition-slow);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 13px;
+  }
+}
